@@ -1,10 +1,10 @@
 package it.aredegalli.coachly.feedback.service;
 
-import it.aredegalli.coachly.feedback.dto.CreateFeedbackRequest;
 import it.aredegalli.coachly.feedback.dto.FeedbackResponse;
 import it.aredegalli.coachly.feedback.dto.FeedbackSummaryResponse;
 import it.aredegalli.coachly.feedback.dto.PagedResponse;
-import it.aredegalli.coachly.feedback.dto.UpdateFeedbackRequest;
+import it.aredegalli.coachly.feedback.controller.request.CreateFeedbackRequest;
+import it.aredegalli.coachly.feedback.controller.request.UpdateFeedbackRequest;
 import it.aredegalli.coachly.feedback.model.TargetType;
 
 import java.util.UUID;

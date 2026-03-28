@@ -1,8 +1,8 @@
 package it.aredegalli.coachly.feedback.service;
 
 import it.aredegalli.coachly.feedback.dto.CommentResponse;
-import it.aredegalli.coachly.feedback.dto.CreateCommentRequest;
-import it.aredegalli.coachly.feedback.dto.UpdateCommentRequest;
+import it.aredegalli.coachly.feedback.controller.request.CreateCommentRequest;
+import it.aredegalli.coachly.feedback.controller.request.UpdateCommentRequest;
 import it.aredegalli.coachly.feedback.model.TargetType;
 import it.aredegalli.coachly.feedback.model.VoteType;
 

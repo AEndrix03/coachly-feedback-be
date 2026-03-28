@@ -1,4 +1,4 @@
-package it.aredegalli.coachly.feedback.dto;
+package it.aredegalli.coachly.feedback.controller.request;
 
 import it.aredegalli.coachly.feedback.model.PollType;
 import jakarta.validation.constraints.NotBlank;
@@ -20,5 +20,6 @@ public record CreatePollRequest(
         @NotEmpty List<@NotBlank @Size(max = 500) String> options
 ) {
 }
+
 
 

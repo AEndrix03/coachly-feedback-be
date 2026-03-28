@@ -12,7 +12,7 @@ import it.aredegalli.coachly.feedback.security.RequestUserContextResolver;
 import it.aredegalli.coachly.feedback.time.TimeProvider;
 import it.aredegalli.coachly.feedback.repository.FeedbackEntryRepository;
 import it.aredegalli.coachly.feedback.repository.FeatureRequestRepository;
-import it.aredegalli.coachly.feedback.dto.CreateModerationReportRequest;
+import it.aredegalli.coachly.feedback.controller.request.CreateModerationReportRequest;
 import it.aredegalli.coachly.feedback.model.ModerationReport;
 import it.aredegalli.coachly.feedback.repository.ModerationReportRepository;
 import it.aredegalli.coachly.feedback.service.ModerationService;

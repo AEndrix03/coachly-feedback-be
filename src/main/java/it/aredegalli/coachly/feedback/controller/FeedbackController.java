@@ -2,6 +2,8 @@ package it.aredegalli.coachly.feedback.controller;
 
 import it.aredegalli.coachly.feedback.dto.*;
 import it.aredegalli.coachly.feedback.dto.ApiResponse;
+import it.aredegalli.coachly.feedback.controller.request.CreateFeedbackRequest;
+import it.aredegalli.coachly.feedback.controller.request.UpdateFeedbackRequest;
 import it.aredegalli.coachly.feedback.model.TargetType;
 import it.aredegalli.coachly.feedback.dto.PagedResponse;
 import it.aredegalli.coachly.feedback.service.FeedbackService;

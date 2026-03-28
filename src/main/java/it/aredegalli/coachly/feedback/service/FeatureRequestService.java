@@ -1,10 +1,10 @@
 package it.aredegalli.coachly.feedback.service;
 
-import it.aredegalli.coachly.feedback.dto.ChangeFeatureStatusRequest;
-import it.aredegalli.coachly.feedback.dto.CreateFeatureRequestRequest;
 import it.aredegalli.coachly.feedback.dto.FeatureRequestResponse;
 import it.aredegalli.coachly.feedback.dto.PagedResponse;
-import it.aredegalli.coachly.feedback.dto.UpdateFeatureRequestRequest;
+import it.aredegalli.coachly.feedback.controller.request.ChangeFeatureStatusRequest;
+import it.aredegalli.coachly.feedback.controller.request.CreateFeatureRequestRequest;
+import it.aredegalli.coachly.feedback.controller.request.UpdateFeatureRequestRequest;
 import it.aredegalli.coachly.feedback.model.StatusHistory;
 import it.aredegalli.coachly.feedback.model.VoteType;
 

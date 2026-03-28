@@ -1,4 +1,4 @@
-package it.aredegalli.coachly.feedback.dto;
+package it.aredegalli.coachly.feedback.controller.request;
 
 import it.aredegalli.coachly.feedback.model.TargetType;
 import jakarta.validation.constraints.NotBlank;
@@ -7,12 +7,13 @@ import jakarta.validation.constraints.Size;
 
 import java.util.UUID;
 
-public record CreateModerationReportRequest(
+public record CreateCommentRequest(
         @NotNull TargetType targetType,
         @NotNull UUID targetId,
-        @NotBlank @Size(max = 100) String reason,
-        @Size(max = 2000) String details
+        UUID parentCommentId,
+        @NotBlank @Size(max = 3000) String body
 ) {
 }
+
 
 

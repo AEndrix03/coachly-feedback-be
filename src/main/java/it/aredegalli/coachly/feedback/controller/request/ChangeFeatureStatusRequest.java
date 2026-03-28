@@ -1,4 +1,4 @@
-package it.aredegalli.coachly.feedback.dto;
+package it.aredegalli.coachly.feedback.controller.request;
 
 import it.aredegalli.coachly.feedback.model.FeatureRequestStatus;
 import jakarta.validation.constraints.NotNull;
@@ -10,5 +10,6 @@ public record ChangeFeatureStatusRequest(
         @Size(max = 1000) String internalNote
 ) {
 }
+
 
 

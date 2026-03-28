@@ -1,6 +1,8 @@
 package it.aredegalli.coachly.feedback.controller;
 
 import it.aredegalli.coachly.feedback.dto.*;
+import it.aredegalli.coachly.feedback.controller.request.CreatePollRequest;
+import it.aredegalli.coachly.feedback.controller.request.PollResponseRequest;
 import it.aredegalli.coachly.feedback.dto.ApiResponse;
 import it.aredegalli.coachly.feedback.service.PollService;
 import jakarta.validation.Valid;

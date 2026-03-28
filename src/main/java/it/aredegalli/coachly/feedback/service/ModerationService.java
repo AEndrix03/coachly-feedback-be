@@ -1,6 +1,6 @@
 package it.aredegalli.coachly.feedback.service;
 
-import it.aredegalli.coachly.feedback.dto.CreateModerationReportRequest;
+import it.aredegalli.coachly.feedback.controller.request.CreateModerationReportRequest;
 import it.aredegalli.coachly.feedback.model.ModerationReport;
 import it.aredegalli.coachly.feedback.model.ModerationReportStatus;
 import it.aredegalli.coachly.feedback.model.TargetType;

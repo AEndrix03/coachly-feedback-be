@@ -1,4 +1,4 @@
-package it.aredegalli.coachly.feedback.dto;
+package it.aredegalli.coachly.feedback.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -11,5 +11,6 @@ public record CreateFeatureRequestRequest(
         @Size(max = 100) String moduleKey
 ) {
 }
+
 
 
