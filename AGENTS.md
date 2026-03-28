@@ -5,14 +5,14 @@ Repository: `coachly-feedback-be`
 ## Project Structure & Module Organization
 This repository is a single-module Spring Boot backend for the Coachly feedback domain.
 
-- `src/main/java/com/coachly/feedback/`: application code organized by vertical modules (`common`, `feedback`, `featurerequest`, `comment`, `poll`, `moderation`, `analytics`, `roadmap`).
+- `src/main/java/it/aredegalli/coachly/feedback/`: application code (`controller`, `controller/request`, `service`, `service/impl`, `repository`, `model`, `dto`, `mapper`, plus `config`, `security`, `exception`, `time`, `util`).
 - `src/main/resources/`: runtime configuration (`application.yml`) and Flyway migrations (`db/migration`).
-- `src/test/java/com/coachly/feedback/`: unit and integration tests.
+- `src/test/java/it/aredegalli/coachly/feedback/`: unit and integration tests.
 - `docs/`: architecture and workflow notes.
 - `docker-compose.yml`: local dependencies for development.
 
 Keep production/test package structures aligned.
-If you add new packages, keep them under `com.coachly.feedback`.
+If you add new packages, keep them under `it.aredegalli.coachly.feedback`.
 
 ## Build, Test, and Development Commands
 Use Maven Wrapper from repo root:
@@ -23,9 +23,10 @@ Use Maven Wrapper from repo root:
 - `.\\mvnw.cmd clean package`: create JAR in `target/`.
 
 ## Coding Style & Naming Conventions
-- Java 21, Spring Boot conventions, modular vertical architecture.
+- Java 21, Spring Boot conventions, layered architecture aligned with other Coachly BE services.
 - Class names `PascalCase`, methods/fields `camelCase`, constants and enum values `UPPER_SNAKE_CASE`.
-- Keep business logic in application/domain services, controllers thin.
+- Keep business logic in services, controllers thin.
+- Services must expose an interface in `service` and implementation in `service/impl` with `*ServiceImpl` naming.
 - Prefer records for DTOs and explicit mappers.
 - Preserve existing formatting style in touched files.
 
