@@ -1,0 +1,44 @@
+### Create feature request
+POST http://localhost:8085/api/v1/feature-requests
+Content-Type: application/json
+X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220001
+X-User-Role: USER
+
+{
+  "title": "Add AI recap",
+  "description": "Weekly AI summary of workouts and mood",
+  "category": "AI",
+  "platformTarget": "android",
+  "moduleKey": "coach"
+}
+
+### Vote feature request (replace id)
+POST http://localhost:8085/api/v1/feature-requests/{{featureId}}/vote
+Content-Type: application/json
+X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220002
+X-User-Role: USER
+
+{
+  "voteType": "UP"
+}
+
+### Create feedback review
+POST http://localhost:8085/api/v1/feedback
+Content-Type: application/json
+X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220003
+X-User-Role: USER
+
+{
+  "type": "REVIEW",
+  "title": "Onboarding",
+  "body": "Good but too long",
+  "ratingValue": 4,
+  "category": "ux",
+  "targetType": "WORKFLOW",
+  "targetId": "3fddf7d6-2b26-4ace-b628-9d5e5e220099"
+}
+
+### Admin analytics overview
+GET http://localhost:8085/api/v1/admin/analytics/overview
+X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220010
+X-User-Role: ADMIN
