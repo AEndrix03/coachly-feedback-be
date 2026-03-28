@@ -1,0 +1,8 @@
+package it.aredegalli.coachly.feedback.model;
+
+public enum PollType {
+    SINGLE_CHOICE,
+    MULTIPLE_CHOICE
+}
+
+
