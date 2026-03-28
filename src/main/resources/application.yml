@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: coachly-feedback-be
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/coachly_feedback}
+    username: ${DB_USER:coachly}
+    password: ${DB_PASSWORD:coachly}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+server:
+  port: ${PORT:8085}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  security:
+    user-id: X-User-Id
+    user-role: X-User-Role
+    correlation-id: X-Correlation-Id
+  comments:
+    max-depth: 4
+    allowed-vote-types: [UP, DOWN, LIKE]
+  polls:
+    allow-anonymous-results: true
+  ranking:
+    age-penalty-per-day: 0.5
+  features:
+    voting-enabled-statuses: [NEW, UNDER_REVIEW, PLANNED]
+    public-roadmap-visible: true
