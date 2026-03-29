@@ -53,7 +53,7 @@ class FeedbackServiceIntegrationTest {
     void shouldCreateFeatureVoteAndRemoveVote() throws Exception {
         HttpResponse<String> createResponse = request(
                 "POST",
-                "/api/v1/feature-requests",
+                "/feature-requests",
                 Map.of(
                         "title", "New timer",
                         "description", "Need interval timer",
@@ -71,7 +71,7 @@ class FeedbackServiceIntegrationTest {
 
         HttpResponse<String> voteResponse = request(
                 "POST",
-                "/api/v1/feature-requests/" + featureId + "/vote",
+                "/feature-requests/" + featureId + "/vote",
                 Map.of("voteType", "UP"),
                 UUID.randomUUID(),
                 "USER"
@@ -80,7 +80,7 @@ class FeedbackServiceIntegrationTest {
 
         HttpResponse<String> removeVoteResponse = request(
                 "DELETE",
-                "/api/v1/feature-requests/" + featureId + "/vote",
+                "/feature-requests/" + featureId + "/vote",
                 null,
                 UUID.randomUUID(),
                 "USER"
@@ -92,7 +92,7 @@ class FeedbackServiceIntegrationTest {
     void shouldRejectDuplicatePollResponse() throws Exception {
         HttpResponse<String> createPollResponse = request(
                 "POST",
-                "/api/v1/admin/polls",
+                "/admin/polls",
                 Map.of(
                         "title", "Roadmap",
                         "description", "What next?",
@@ -114,7 +114,7 @@ class FeedbackServiceIntegrationTest {
 
         HttpResponse<String> publish = request(
                 "PATCH",
-                "/api/v1/admin/polls/" + pollId + "/publish",
+                "/admin/polls/" + pollId + "/publish",
                 null,
                 UUID.randomUUID(),
                 "ADMIN"
@@ -124,7 +124,7 @@ class FeedbackServiceIntegrationTest {
         UUID userId = UUID.randomUUID();
         HttpResponse<String> first = request(
                 "POST",
-                "/api/v1/polls/" + pollId + "/responses",
+                "/polls/" + pollId + "/responses",
                 Map.of("optionIds", List.of(optionId)),
                 userId,
                 "USER"
@@ -133,7 +133,7 @@ class FeedbackServiceIntegrationTest {
 
         HttpResponse<String> duplicate = request(
                 "POST",
-                "/api/v1/polls/" + pollId + "/responses",
+                "/polls/" + pollId + "/responses",
                 Map.of("optionIds", List.of(optionId)),
                 userId,
                 "USER"
@@ -146,7 +146,7 @@ class FeedbackServiceIntegrationTest {
         UUID targetId = UUID.randomUUID();
         HttpResponse<String> create = requestUnchecked(
                 "POST",
-                "/api/v1/feedback",
+                "/feedback",
                 Map.of(
                         "type", "REVIEW",
                         "title", "Great",
@@ -163,7 +163,7 @@ class FeedbackServiceIntegrationTest {
 
         HttpResponse<String> summary = requestUnchecked(
                 "GET",
-                "/api/v1/feedback/summary?targetType=FEATURE&targetId=" + targetId,
+                "/feedback/summary?targetType=FEATURE&targetId=" + targetId,
                 null,
                 UUID.randomUUID(),
                 "USER"

@@ -1,5 +1,5 @@
 ### Create feature request
-POST http://localhost:8085/api/v1/feature-requests
+POST http://localhost:8080/feature-requests
 Content-Type: application/json
 X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220001
 X-User-Role: USER
@@ -13,7 +13,7 @@ X-User-Role: USER
 }
 
 ### Vote feature request (replace id)
-POST http://localhost:8085/api/v1/feature-requests/{{featureId}}/vote
+POST http://localhost:8080/feature-requests/{{featureId}}/vote
 Content-Type: application/json
 X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220002
 X-User-Role: USER
@@ -23,7 +23,7 @@ X-User-Role: USER
 }
 
 ### Create feedback review
-POST http://localhost:8085/api/v1/feedback
+POST http://localhost:8080/feedback
 Content-Type: application/json
 X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220003
 X-User-Role: USER
@@ -39,6 +39,7 @@ X-User-Role: USER
 }
 
 ### Admin analytics overview
-GET http://localhost:8085/api/v1/admin/analytics/overview
+GET http://localhost:8080/admin/analytics/overview
 X-User-Id: 3fddf7d6-2b26-4ace-b628-9d5e5e220010
 X-User-Role: ADMIN
+

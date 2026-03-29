@@ -1,12 +1,12 @@
 package it.aredegalli.coachly.feedback.controller;
 
-import it.aredegalli.coachly.feedback.dto.*;
 import it.aredegalli.coachly.feedback.controller.request.CommentVoteRequest;
 import it.aredegalli.coachly.feedback.controller.request.CreateCommentRequest;
 import it.aredegalli.coachly.feedback.controller.request.UpdateCommentRequest;
-import it.aredegalli.coachly.feedback.service.CommentService;
 import it.aredegalli.coachly.feedback.dto.ApiResponse;
+import it.aredegalli.coachly.feedback.dto.CommentResponse;
 import it.aredegalli.coachly.feedback.model.TargetType;
+import it.aredegalli.coachly.feedback.service.CommentService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/comments")
+@RequestMapping("/comments")
 public class CommentController {
 
     private final CommentService service;
@@ -66,9 +66,4 @@ public class CommentController {
         return ApiResponse.of(service.removeVote(id));
     }
 }
-
-
-
-
-
 

@@ -1,8 +1,7 @@
 package it.aredegalli.coachly.feedback.controller;
 
-import it.aredegalli.coachly.feedback.dto.*;
-import it.aredegalli.coachly.feedback.service.AnalyticsService;
 import it.aredegalli.coachly.feedback.dto.ApiResponse;
+import it.aredegalli.coachly.feedback.service.AnalyticsService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/admin/analytics")
+@RequestMapping("/admin/analytics")
 public class AnalyticsController {
 
     private final AnalyticsService service;
@@ -40,9 +39,4 @@ public class AnalyticsController {
         return ApiResponse.of(service.pollsEngagement());
     }
 }
-
-
-
-
-
 

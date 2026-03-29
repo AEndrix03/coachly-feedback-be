@@ -26,7 +26,7 @@ Gateway authentication is trusted, and user context is resolved from headers:
 
 ## Architecture
 
-Package root: `com.coachly.feedback`
+Package root: `it.aredegalli.coachly.feedback`
 
 Vertical modules:
 - `common`
@@ -46,7 +46,7 @@ Cross-cutting:
 
 ## API
 
-Base path: `/api/v1`
+Base path: `/`
 
 Main endpoint groups:
 - Feedback: `/feedback`, `/feedback/summary`
@@ -58,7 +58,7 @@ Main endpoint groups:
 - Analytics: `/admin/analytics/*`
 
 OpenAPI UI:
-- `http://localhost:8085/swagger-ui.html`
+- `http://localhost:8080/swagger-ui.html`
 
 ## Local Run
 
@@ -86,10 +86,10 @@ Windows:
 Use `.env.example` as reference.
 
 Main vars:
-- `DB_URL`
-- `DB_USER`
-- `DB_PASSWORD`
-- `PORT`
+- `COACHLY_DB_URL` (fallback: `DB_URL`)
+- `COACHLY_DB_USERNAME` (fallback: `DB_USER`)
+- `COACHLY_DB_PASSWORD` (fallback: `DB_PASSWORD`)
+- `SERVER_PORT` (fallback: `PORT`, default `8080`)
 
 ## Database
 
@@ -118,3 +118,4 @@ Coverage includes:
 - domain event publisher (`DomainEventPublisher`)
 - notification extension point (`NotificationHook`, currently no-op)
 - modular boundaries ready for Redis/Kafka adapters
+

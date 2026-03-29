@@ -1,15 +1,14 @@
 package it.aredegalli.coachly.feedback.controller;
 
-import it.aredegalli.coachly.feedback.dto.*;
-import it.aredegalli.coachly.feedback.dto.ApiResponse;
 import it.aredegalli.coachly.feedback.controller.request.ChangeFeatureStatusRequest;
 import it.aredegalli.coachly.feedback.controller.request.CreateFeatureRequestRequest;
 import it.aredegalli.coachly.feedback.controller.request.FeatureVoteRequest;
 import it.aredegalli.coachly.feedback.controller.request.UpdateFeatureRequestRequest;
-import it.aredegalli.coachly.feedback.model.VoteType;
+import it.aredegalli.coachly.feedback.dto.ApiResponse;
+import it.aredegalli.coachly.feedback.dto.FeatureRequestResponse;
 import it.aredegalli.coachly.feedback.dto.PagedResponse;
-import it.aredegalli.coachly.feedback.service.FeatureRequestService;
 import it.aredegalli.coachly.feedback.model.StatusHistory;
+import it.aredegalli.coachly.feedback.service.FeatureRequestService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,7 +24,6 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
 public class FeatureRequestController {
 
     private final FeatureRequestService service;
@@ -89,9 +86,4 @@ public class FeatureRequestController {
         return ApiResponse.of(service.history(id));
     }
 }
-
-
-
-
-
 
