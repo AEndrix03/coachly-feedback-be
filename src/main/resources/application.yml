@@ -7,18 +7,29 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: ${COACHLY_DB_URL:${DB_URL:jdbc:postgresql://localhost:5432/coachly_feedback}}
-    username: ${COACHLY_DB_USERNAME:${DB_USER:coachly}}
-    password: ${COACHLY_DB_PASSWORD:${DB_PASSWORD:coachly}}
+    driver-class-name: org.postgresql.Driver
+    url: ${COACHLY_DB_URL}
+    username: ${COACHLY_DB_USERNAME}
+    password: ${COACHLY_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 20000
+      idle-timeout: 300000
   jpa:
     hibernate:
       ddl-auto: validate
+    show-sql: false
     open-in-view: false
     properties:
       hibernate:
+        default_schema: feedback
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
   flyway:
     enabled: true
+    default-schema: feedback
+    schemas: feedback
 
 server:
   address: 0.0.0.0
