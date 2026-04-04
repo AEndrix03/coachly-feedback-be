@@ -31,12 +31,39 @@ public class RequestUserContextResolver {
     public RequestUserContext resolve(HttpServletRequest request) {
         String userIdHeader = request.getHeader(appProperties.security().userId());
         String userRoleHeader = request.getHeader(appProperties.security().userRole());
-        if (userIdHeader == null || userRoleHeader == null) {
+        if (userIdHeader == null) {
             throw new BadRequestException("TRUSTED_HEADERS_MISSING", "Required trusted headers are missing");
         }
         UUID userId = UUID.fromString(userIdHeader);
-        AppRole role = AppRole.valueOf(userRoleHeader.toUpperCase(Locale.ROOT));
+        AppRole role = resolveRole(userRoleHeader);
         return new RequestUserContext(userId, role, request.getHeader("X-User-Name"));
+    }
+
+    private AppRole resolveRole(String userRoleHeader) {
+        if (userRoleHeader == null || userRoleHeader.isBlank()) {
+            return AppRole.USER;
+        }
+
+        String normalized = userRoleHeader
+                .toUpperCase(Locale.ROOT)
+                .replace('-', '_')
+                .replace(' ', '_');
+
+        String[] roles = normalized.split(",");
+        for (String role : roles) {
+            String trimmed = role.trim();
+            if (trimmed.equals("ADMIN")) {
+                return AppRole.ADMIN;
+            }
+        }
+        for (String role : roles) {
+            String trimmed = role.trim();
+            if (trimmed.equals("MODERATOR")) {
+                return AppRole.MODERATOR;
+            }
+        }
+
+        return AppRole.USER;
     }
 }
 

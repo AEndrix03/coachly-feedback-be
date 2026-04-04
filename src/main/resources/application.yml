@@ -58,7 +58,7 @@ springdoc:
 app:
   security:
     user-id: X-User-Id
-    user-role: X-User-Role
+    user-role: X-Realm-Roles
     correlation-id: X-Correlation-Id
   comments:
     max-depth: 4
